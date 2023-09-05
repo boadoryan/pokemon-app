@@ -24,7 +24,7 @@ const getPokemon = async (res, stateToSet) => {
   }
 };
 
-const fetchEvolutionChain = async (pokemonId, pokemonName, stateToSet) => {
+const fetchEvolutionChain = async (pokemonId, stateToSet) => {
   try {
     const speciesResponse = await axios.get(
       `https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`

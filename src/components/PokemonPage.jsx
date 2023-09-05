@@ -23,7 +23,7 @@ const PokemonPage = ({
       <div className="text-2xl md:text-5xl">
         {pokemonData[pokemonId - 1]?.name?.toUpperCase()}
       </div>
-      {/* <PokemonEvolutionsCard pokemonId={pokemonId} /> */}
+      <PokemonEvolutionsCard pokemonId={pokemonId} pokemonName={pokemonName} />
       {/* <PokemonCard /> */}
       <div className="flex flex-col mt-4 md:flex-row md:gap-4">
         <div className="w-full md:w-2/5 my-4">
@@ -33,6 +33,7 @@ const PokemonPage = ({
           <PokemonInfoCard
             pokemonData={pokemonData}
             currentSelectedPokemon={pokemonId - 1}
+            pokemonName={pokemonName}
           />
         </div>
         <div className="w-full md:w-3/5 my-4">
