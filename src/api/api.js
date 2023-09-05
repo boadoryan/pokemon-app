@@ -32,6 +32,7 @@ const fetchEvolutionChain = async (pokemonId, stateToSet) => {
     const evolutionChainUrl = speciesResponse.data.evolution_chain.url;
     const evolutionChainResponse = await axios.get(evolutionChainUrl);
     let chain = evolutionChainResponse.data.chain;
+    console.log(chain);
     const evolutionData = {};
 
     while (chain) {
@@ -39,7 +40,9 @@ const fetchEvolutionChain = async (pokemonId, stateToSet) => {
       const pokemonResponse = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${pokemonName}/`
       );
-      const imageUrl = pokemonResponse.data.sprites.front_default;
+      console.log(pokemonResponse.data);
+      const imageUrl =
+        pokemonResponse.data.sprites.other.dream_world.front_default;
       evolutionData[pokemonName] = imageUrl;
 
       if (chain.evolves_to.length > 0) {

@@ -1,26 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-6">
       <div className="container mx-auto">
         <div className="flex justify-between items-center">
-          <div className="text-white font-bold text-xl">Pokemon App</div>
+          <Link to="/" className="text-white font-bold text-xl">
+            Pokemon App
+          </Link>
           <ul className="flex space-x-4">
             <li>
-              <a className="text-white hover:text-gray-300" href="/">
+              <Link to="/" className="text-white hover:text-gray-300">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="text-white hover:text-gray-300" href="/about">
+              <Link to="/about" className="text-white hover:text-gray-300">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a className="text-white hover:text-gray-300" href="/contact">
+              <Link to="/contact" className="text-white hover:text-gray-300">
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         </div>

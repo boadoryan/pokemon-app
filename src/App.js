@@ -4,14 +4,14 @@ import { fetchQuotes, getPokemon } from "./api/api";
 import FullPokemonList from "./components/FullPokemonList";
 import Navbar from "./components/Navbar";
 import PokemonPage from "./components/PokemonPage";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom"; // Import BrowserRouter, Link, and Route
+import { formatText } from "./functions/utils";
 
 const App = () => {
   const [pokemonData, setPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentSelectedPokemon, setCurrentSelectedPokemon] = useState(null);
+  const [selectedPokemonName, setSelectedPokemonName] = useState(null); // Use selectedPokemonId instead of currentSelectedPokemon
   const [apiLimit, setAPILimit] = useState(151);
-
-  const test = "pikachu";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,56 +27,44 @@ const App = () => {
     fetchData();
   }, [apiLimit]);
 
-  // console.log(pokemonData);
-
-  const getMorePokemon = () => {
-    setAPILimit((val) => val + 20);
-    console.log(apiLimit);
-  };
-
-  const getId = (id, name) => {
-    const newID = `${name}-${id}`;
-    setCurrentSelectedPokemon(newID);
-    // console.log(id);
-    // console.log(name);
+  const getPokemonName = (name) => {
+    setSelectedPokemonName(name);
   };
 
   const handleBackButton = () => {
-    if (currentSelectedPokemon !== null) {
-      setCurrentSelectedPokemon(null);
-    }
-  };
-
-  const formatText = (text) => {
-    const newText = text.split("-");
-    return newText
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(" ");
+    setSelectedPokemonName(null);
   };
 
   return (
-    <div>
+    <>
+      <Navbar />
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div>
-          <Navbar />
-          {currentSelectedPokemon === null ? (
-            <>
-              <FullPokemonList pokemonData={pokemonData} getId={getId} />
-              {/* <button onClick={getMorePokemon}>More</button> */}
-            </>
-          ) : (
-            <PokemonPage
-              currentSelectedPokemon={currentSelectedPokemon}
-              pokemonData={pokemonData}
-              handleBackButton={handleBackButton}
-              formatText={formatText}
-            />
-          )}
-        </div>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <FullPokemonList
+                pokemonData={pokemonData}
+                getPokemonName={getPokemonName}
+              />
+            }
+          ></Route>
+          <Route
+            path="/pokemon/:id"
+            element={
+              <PokemonPage
+                selectedPokemonName={selectedPokemonName}
+                pokemonData={pokemonData}
+                handleBackButton={handleBackButton}
+                formatText={formatText}
+              />
+            }
+          ></Route>
+        </Routes>
       )}
-    </div>
+    </>
   );
 };
 export default App;

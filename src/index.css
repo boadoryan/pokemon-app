@@ -39,7 +39,22 @@ code {
   position: absolute;
 }
 
-.evolution-chain-container img {
+.evolution-chain-img {
   max-width: 100%;
-  height: 220px;
+  /* height: 180px; */
+  /* background-color: red;
+  border-radius: 50%; */
 }
+
+.circle {
+  width: 180px; /* Adjust the size of the circle as needed */
+  height: 180px; /* Adjust the size of the circle as needed */
+  background-color: #e9e9e9; /* Set the background color of the circle */
+  border-radius: 50%; /* Make it a circle by setting border-radius */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
