@@ -12,10 +12,12 @@ const SelectedPokemonCard = ({
     <>
       <div className="rounded-3xl border p-8 flex flex-col">
         <div className="flex justify-between">
-          <p className="font-bold text-5xl">
+          <p className="font-bold text-2xl md:text-4xl">
             {pokemonData[currentPokemonId - 1]?.name.toUpperCase()}
           </p>
-          <p className="text-2xl">{`#${pokemonData[currentPokemonId - 1]?.id
+          <p className=" text-lg md:text-2xl">{`#${pokemonData[
+            currentPokemonId - 1
+          ]?.id
             .toString()
             .padStart(4, "0")}`}</p>
         </div>

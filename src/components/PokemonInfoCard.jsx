@@ -9,6 +9,26 @@ const PokemonInfoCard = ({
   return (
     <div className="flex border p-8 rounded-3xl">
       <div className="flex flex-col w-full">
+        <div className="flex flex-col gap-8 text-lg justify-self-end mb-10">
+          <div className="flex flex-col gap-2 font-bold">
+            <p className="font-bold text-xl">Wgt:</p>
+            <p className="text-3xl">
+              {pokemonData[currentPokemonId - 1]?.weight} kg
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 font-bold">
+            <p className="font-bold text-xl">Hgt:</p>
+            <p className="text-3xl">
+              {pokemonData[currentPokemonId - 1]?.height} m
+            </p>
+          </div>
+          <div className="flex flex-col gap-2 font-bold">
+            <p className="font-bold text-xl">Base Xp:</p>
+            <p className="text-3xl">
+              {pokemonData[currentPokemonId - 1]?.base_experience} xp
+            </p>
+          </div>
+        </div>
         <div className="mb-8">
           <p className="font-bold text-2xl mb-2">Held Items:</p>
           <ul className="flex gap-4">
@@ -36,26 +56,6 @@ const PokemonInfoCard = ({
               </li>
             ))}
           </ul>
-        </div>
-        <div className="flex gap-16 text-lg justify-self-end mt-10">
-          <div className="flex flex-col gap-2 font-bold">
-            <p className="font-bold text-xl">Wgt:</p>
-            <p className="text-3xl">
-              {pokemonData[currentPokemonId - 1]?.weight} kg
-            </p>
-          </div>
-          <div className="flex flex-col gap-2 font-bold">
-            <p className="font-bold text-xl">Hgt:</p>
-            <p className="text-3xl">
-              {pokemonData[currentPokemonId - 1]?.height} m
-            </p>
-          </div>
-          <div className="flex flex-col gap-2 font-bold">
-            <p className="font-bold text-xl">Base Xp:</p>
-            <p className="text-3xl">
-              {pokemonData[currentPokemonId - 1]?.base_experience} xp
-            </p>
-          </div>
         </div>
       </div>
     </div>
