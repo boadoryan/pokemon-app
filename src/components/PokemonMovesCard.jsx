@@ -12,7 +12,7 @@ const PokemonMovesTable = ({
   });
 
   return (
-    <div className="w-full border rounded-3xl p-2">
+    <div className="w-full border rounded-3xl p-4">
       <div className="overflow-auto max-h-96">
         {" "}
         {/* Add max height for scrolling */}

@@ -10,6 +10,8 @@ const PokemonInfoCard = ({ pokemonData, currentSelectedPokemon }) => {
     speed: "Spd.",
   };
 
+  // console.log(pokemonData);
+
   return (
     <div className="flex border justify-center w-full rounded-3xl">
       <div className="grid grid-cols-3 p-9 gap-4">

@@ -2,8 +2,6 @@ import React from "react";
 import typeColors from "../ColorTypes";
 
 const FullPokemonList = ({ pokemonData, getId }) => {
-  console.log(typeColors["fire"].color);
-
   return (
     <>
       {pokemonData && pokemonData.length > 0 && (
@@ -12,7 +10,7 @@ const FullPokemonList = ({ pokemonData, getId }) => {
             <div key={index}>
               <div
                 className="p-4 pokemon-card rounded shadow-md"
-                onClick={() => getId(item.id)}
+                onClick={() => getId(item.id, item.name)}
               >
                 <div className="card-details flex justify-between">
                   <p className="text-lg font-bold">{item.name.toUpperCase()}</p>
@@ -22,8 +20,8 @@ const FullPokemonList = ({ pokemonData, getId }) => {
                 </div>
                 <div className="image-container flex justify-center max-w-full overflow-hidden">
                   <img
-                    className="max-h-48 mt-2" // Adjust the max height as needed
-                    src={item.sprites.front_default}
+                    className="max-h-32 mt-10" // Adjust the max height as needed
+                    src={item.sprites.other.dream_world.front_default}
                     alt=""
                   />
                 </div>

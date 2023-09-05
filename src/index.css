@@ -33,8 +33,13 @@ code {
   cursor: pointer;
 }
 
-img {
+.image-container img {
   max-width: 100%; /* Ensure the image doesn't exceed its parent's width */
   height: 220px; /* Maintain the aspect ratio while adjusting the width */
   position: absolute;
+}
+
+.evolution-chain-container img {
+  max-width: 100%;
+  height: 220px;
 }

@@ -11,6 +11,8 @@ const App = () => {
   const [currentSelectedPokemon, setCurrentSelectedPokemon] = useState(null);
   const [apiLimit, setAPILimit] = useState(151);
 
+  const test = "pikachu";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -25,14 +27,18 @@ const App = () => {
     fetchData();
   }, [apiLimit]);
 
+  // console.log(pokemonData);
+
   const getMorePokemon = () => {
     setAPILimit((val) => val + 20);
     console.log(apiLimit);
   };
 
-  const getId = (id) => {
-    setCurrentSelectedPokemon(parseInt(id - 1));
-    console.log(id);
+  const getId = (id, name) => {
+    const newID = `${name}-${id}`;
+    setCurrentSelectedPokemon(newID);
+    // console.log(id);
+    // console.log(name);
   };
 
   const handleBackButton = () => {
