@@ -9,7 +9,7 @@ const PokemonInfoCard = ({
   return (
     <div className="flex border p-8 rounded-3xl h-full">
       <div className="flex flex-col w-full">
-        <div className="flex flex-col md:flex-row justify-center border rounded py-4 md:gap-12 text-lg justify-self-end mb-10">
+        <div className="flex flex-col md:flex-row border bg-[#e8e8e8] justify-center rounded py-4 md:gap-20 text-lg justify-self-end mb-10">
           <div className="flex flex-col gap-2 font-bold">
             <p className="font-bold text-xl">Wgt:</p>
             <p className="text-3xl">
@@ -42,7 +42,7 @@ const PokemonInfoCard = ({
                   )
                 )
               ) : (
-                <li className=" p-2">
+                <li className="">
                   {`${selectedPokemonName} has no held items`}
                 </li>
               )

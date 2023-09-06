@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { fetchQuotes, getPokemon } from "./api/api";
-import FullPokemonList from "./components/FullPokemonList";
-import Navbar from "./components/Navbar";
-import PokemonPage from "./components/PokemonPage";
+import FullPokemonList from "./views/FullPokemonList/FullPokemonList";
+import Navbar from "./Navbar";
+import PokemonPage from "./views/SelectedPokemonPage/SelectedPokemonPage";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"; // Import BrowserRouter, Link, and Route
 import { formatText } from "./functions/utils";
 import { useFetch } from "./hooks/useFetch";
 
 const App = () => {
   const [selectedPokemonName, setSelectedPokemonName] = useState(null); // Use selectedPokemonId instead of currentSelectedPokemon
-
   const {
     pokemon: pokemonData,
     error,

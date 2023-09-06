@@ -1,5 +1,5 @@
 import React from "react";
-import typeColors from "../ColorTypes";
+import typeColors from "../../ColorTypes";
 
 const FullPokemonListItem = ({ index, getPokemonName, item }) => {
   return (

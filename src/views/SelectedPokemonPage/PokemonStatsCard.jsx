@@ -19,7 +19,7 @@ const PokemonStatsCard = ({ pokemonData, currentPokemonId }) => {
               <p className=" md:text-xl font-bold w-100">
                 {statAbbreviations[stat.stat.name] || stat.stat.name}
               </p>
-              <p className="text-4xl md:text-7xl mt-2 text-center font-bold">
+              <p className="text-4xl md:text-6xl mt-2 text-center font-bold">
                 {stat.base_stat}
               </p>
             </div>

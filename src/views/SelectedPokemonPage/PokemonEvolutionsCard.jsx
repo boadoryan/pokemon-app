@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchEvolutionChain } from "../../api/api";
-import { PokemonEvolutionsItem } from "./PokemonEvolutionsItem";
-import { LoadingComponent } from "../LoadingComponent";
+import { PokemonEvolutionsItem } from "./PokemonEvolutionsListItem";
+import { LoadingComponent } from "../../components/LoadingComponent";
 import axios from "axios";
 
 const EvolutionChain = ({ currentPokemonId, pokemonName, pokemonData }) => {
