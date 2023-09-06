@@ -11,7 +11,7 @@ const PokemonStatsCard = ({ pokemonData, currentPokemonId }) => {
   };
 
   return (
-    <div className="flex w-full border justify-center p-6 md:p-[4.3rem] rounded-3xl">
+    <div className="flex w-full border justify-center p-6 md:p-[4.3rem] h-full rounded-3xl">
       <div className="grid grid-cols-3 gap-12">
         {pokemonData[currentPokemonId]?.stats.map((stat, index) => (
           <div key={index} className="">

@@ -10,7 +10,7 @@ const SelectedPokemonCard = ({
   console.log(pokemonData[currentPokemonId - 1]);
   return (
     <>
-      <div className="rounded-3xl border p-8 flex flex-col">
+      <div className="rounded-3xl border p-8 flex flex-col h-full">
         <div className="flex justify-between">
           <p className="font-bold text-2xl md:text-4xl">
             {pokemonData[currentPokemonId - 1]?.name.toUpperCase()}

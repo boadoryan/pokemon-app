@@ -6,35 +6,20 @@ import Navbar from "./components/Navbar";
 import PokemonPage from "./components/PokemonPage";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom"; // Import BrowserRouter, Link, and Route
 import { formatText } from "./functions/utils";
+import { useFetch } from "./hooks/useFetch";
 
 const App = () => {
-  const [pokemonData, setPokemonData] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [selectedPokemonName, setSelectedPokemonName] = useState(null); // Use selectedPokemonId instead of currentSelectedPokemon
-  const [apiLimit, setAPILimit] = useState(151);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const pokemonData = await fetchQuotes(apiLimit);
-        getPokemon(pokemonData.results, setPokemonData);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [apiLimit]);
+  const {
+    pokemon: pokemonData,
+    error,
+    loading,
+  } = useFetch("https://pokeapi.co/api/v2/pokemon/?limit=151");
 
   const getPokemonName = (name) => {
     setSelectedPokemonName(name);
   };
-
-  const handleBackButton = () => {
-    setSelectedPokemonName(null);
-  };
-
   return (
     <>
       <Navbar />
@@ -48,6 +33,7 @@ const App = () => {
               <FullPokemonList
                 pokemonData={pokemonData}
                 getPokemonName={getPokemonName}
+                setSelectedPokemonName={setSelectedPokemonName}
               />
             }
           ></Route>
@@ -57,7 +43,6 @@ const App = () => {
               <PokemonPage
                 selectedPokemonName={selectedPokemonName}
                 pokemonData={pokemonData}
-                handleBackButton={handleBackButton}
                 formatText={formatText}
               />
             }

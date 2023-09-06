@@ -5,4 +5,8 @@ const formatText = (text) => {
     .join(" ");
 };
 
+// const getPokemonName = (name, stateToSet) => {
+//   stateToSet(name);
+// };
+
 export { formatText };
