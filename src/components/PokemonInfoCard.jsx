@@ -32,18 +32,22 @@ const PokemonInfoCard = ({
         <div className="mb-8">
           <p className="font-bold text-2xl mb-2">Held Items:</p>
           <ul className="flex gap-4">
-            {pokemonData[currentPokemonId - 1]?.held_items.length > 0 ? (
-              pokemonData[currentPokemonId - 1]?.held_items.map(
-                (item, index) => (
-                  <li key={index} className="border p-2 rounded">
-                    {formatText(item.item.name)}
-                  </li>
+            {selectedPokemonName ? (
+              pokemonData[currentPokemonId - 1]?.held_items.length > 0 ? (
+                pokemonData[currentPokemonId - 1]?.held_items.map(
+                  (item, index) => (
+                    <li key={index} className="border p-2 rounded">
+                      {formatText(item.item.name)}
+                    </li>
+                  )
                 )
+              ) : (
+                <li className="border p-2 rounded">
+                  {`${selectedPokemonName} has no held items`}
+                </li>
               )
             ) : (
-              <li className="border p-2 rounded">
-                {`${selectedPokemonName} has no held items`}
-              </li>
+              <li className="border p-2 rounded">Loading...</li> // Replace with loading indicator if needed
             )}
           </ul>
         </div>
